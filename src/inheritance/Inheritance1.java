@@ -3,6 +3,7 @@ package inheritance;
 import overviewOfOOps.Inheritance;
 
 class Parent{
+    protected boolean i;
     int age ;
     void display(){
         age=60;
