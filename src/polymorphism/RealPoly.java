@@ -16,6 +16,9 @@ class Tiger extends Animal{
     public void running(){
         System.out.println("tiger run for hunts ");
     }
+    public void show(){
+        System.out.println("showing");
+    }
 }
 class Monkey extends Animal{
     public void eat(){
@@ -30,6 +33,7 @@ class Forest{
     public void permit(Animal animal){
         animal.eat();
         animal.running();
+        ((Tiger) animal).show();
     }
 }
 public class RealPoly {
@@ -38,6 +42,6 @@ public class RealPoly {
         Monkey mk=new Monkey();
         Forest fr=new Forest();
         fr.permit(tr);
-        fr.permit(mk);
+//        fr.permit(mk);
     }
 }
