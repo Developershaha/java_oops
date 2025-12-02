@@ -42,6 +42,6 @@ public class RealPoly {
         Monkey mk=new Monkey();
         Forest fr=new Forest();
         fr.permit(tr);
-//        fr.permit(mk);
+        fr.permit(mk);
     }
 }
