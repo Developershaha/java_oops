@@ -40,8 +40,7 @@ class MyLinkedList {
 
     }
 
-    // 2 add at tail means end of the linkedlist
-
+    // 2 add at tail means end of the linked list
     public void addAtTail(int data) {
         Node newNode = new Node(data);
         if (this.head == null) {
@@ -58,27 +57,82 @@ class MyLinkedList {
     }
 
     // add at index
-    public void addAtIndex(int index,int data){
+    public void addAtIndex(int index, int data) {
 
-        if(index==0){
+        if (index < 0 || index > size) {
+            System.out.println("please enter valid index ");
+            return;
+        } else if (index == 0) {
             addAtHead(data);
-        }
-        else if(index==this.size){
+        } else if (index == this.size) {
             addAtTail(data);
-        }
-        else{
-            Node newNode=new Node(data);
-            Node current=this.head;
-            for(int i=0;i<index-1;i++){
-                current=current.next;
+        } else {
+            Node newNode = new Node(data);
+            Node current = this.head;
+            for (int i = 0; i < index - 1; i++) {
+                current = current.next;
             }
-            newNode.next=current.next;
-            current.next=newNode;
+            newNode.next = current.next;
+            current.next = newNode;
             this.size++;
 
         }
     }
 
+//   // 7. Print LinkedList
+    public void printList() {
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+
+        System.out.println("null");
+    }
+
+    // get element at the index
+    public int getElement(int index){
+        if(index<0 || index > this.size){
+            System.out.println("enter valid index");
+            return -1;
+        }else{
+            Node current=this.head;
+            for(int i=0;i<index;i++){
+                current=current.next;
+
+            }
+            return current.data;
+
+        }
+
+
+    }
+
+    public void deleteAtIndex(int index){
+       // 1 check at index 0
+       if(index <0 || index>=this.size){
+           System.out.println("please enter valid index");
+           return;
+       }
+       else if(this.head==null){
+           System.out.println("list is empty ");
+
+       }
+       else if(index==0){
+           this.head=this.head.next;
+           this.size--;
+           return;
+       }
+       else{
+           Node curr=this.head;
+           for(int i=0;i<index-1;i++){
+               curr=curr.next;
+           }
+           curr.next=curr.next.next;
+           this.size--;
+       }
+    }
     public int getSize() {
         return this.size;
     }
@@ -90,10 +144,17 @@ public class Main {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.addAtHead(5);
         myLinkedList.addAtHead(10);
+        myLinkedList.addAtHead(30);
+        myLinkedList.addAtHead(40);
         myLinkedList.addAtTail(11);
-        myLinkedList.addAtIndex(2,20);
+        myLinkedList.addAtIndex(2, 20);
 
-        System.out.println(myLinkedList.getSize());
+//        myLinkedList.printList();
+//        System.out.println(myLinkedList.getSize());
+
+       int elementAtIndex= myLinkedList.getElement(3);
+        System.out.println(elementAtIndex);
     }
+
 }
 
