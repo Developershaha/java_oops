@@ -57,7 +57,7 @@ ArrayList<Integer> arr=new ArrayList<>();
 public class ConvertLinkedListToArray {
     public static void main(String[] args) {
         MyLinkedList list = new MyLinkedList();
-
+// time complexity is O(n) and space is O(1)
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
